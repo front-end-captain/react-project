@@ -1,10 +1,9 @@
 # react-project
 
-+ no babel
 + no css-preprocessor
 + no linter(eslint/stylelint)
-+ no prettier
-+ no editorconfig
-+ not supported react and es6/7/8/9
++ no typescript
++ no router
++ no unit test
 
-just supported es5 and css
+supported babel、es5/6/7/8、css、react and hmr

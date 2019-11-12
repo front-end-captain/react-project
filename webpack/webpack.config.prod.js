@@ -2,14 +2,15 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const BUILD_PATH = path.resolve(__dirname, "./../build");
-const ASSETS_PATH = "/assets/";
+const ASSETS_PATH = "/";
 
 module.exports = {
   mode: "production",
   entry: {
-    app: path.resolve(__dirname, "./../src/index.js"),
+    app: path.resolve(__dirname, "./../src/index.jsx"),
   },
 
   output: {
@@ -22,6 +23,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js?x$/,
+        loader: require.resolve("babel-loader"),
+        options: {
+          cacheDirectory: true,
+        },
+      },
+      {
         test: /\.css$/,
         use: [
           {
@@ -31,7 +39,6 @@ module.exports = {
             loader: require.resolve("css-loader"),
           },
         ],
-      
       },
     ],
   },
@@ -65,6 +72,11 @@ module.exports = {
     },
   },
 
+  resolve: {
+    extensions: [".js", ".json", ".jsx"],
+    alias: getAlias(),
+  },
+
   plugins: [
     new CleanWebpackPlugin({
       verbose: true,
@@ -78,5 +90,6 @@ module.exports = {
       title: "react-demo",
       template: path.resolve(__dirname, "./../template/index.html"),
     }),
+    new BundleAnalyzerPlugin(),
   ],
 };

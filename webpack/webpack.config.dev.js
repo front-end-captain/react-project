@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const { getAlias } = require("./paths");
+
 const BUILD_PATH = path.resolve(__dirname, "./../build");
 const ASSETS_PATH = "/assets/";
 
@@ -10,7 +12,7 @@ module.exports = {
   devtool: "cheap-module-source-map",
   mode: "development",
   entry: {
-    app: path.resolve(__dirname, "./../src/index.js"),
+    app: path.resolve(__dirname, "./../src/index.jsx"),
   },
 
   output: {
@@ -21,6 +23,13 @@ module.exports = {
 
   module: {
     rules: [
+      {
+        test: /\.js?x$/,
+        loader: require.resolve("babel-loader"),
+        options: {
+          cacheDirectory: true,
+        },
+      },
       {
         test: /\.css$/,
         use: [
@@ -37,9 +46,13 @@ module.exports = {
             },
           },
         ],
-      
       },
     ],
+  },
+
+  resolve: {
+    extensions: [".js", ".json", ".jsx"],
+    alias: getAlias(),
   },
 
   devServer: {
@@ -54,6 +67,14 @@ module.exports = {
     publicPath: ASSETS_PATH,
     historyApiFallback: {
       index: ASSETS_PATH + "index.html",
+    },
+    clientLogLevel: "silent",
+    stats: {
+      version: true,
+      timings: true,
+      colors: true,
+      modules: false,
+      children: false,
     },
   },
 
