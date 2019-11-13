@@ -45,8 +45,45 @@ module.exports = {
               sourceMap: true,
             },
           },
+          {
+            loader: require.resolve("postcss-loader"),
+            options: {
+              ident: "postcss",
+              sourceMap: true,
+            },
+          },
         ],
       },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: require.resolve("postcss-loader"),
+            options: {
+              ident: "postcss",
+              sourceMap: true,
+            },
+          },
+          {
+            loader: "less-loader",
+            options: {
+              strictMath: true,
+              noIeCompat: true,
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+
     ],
   },
 

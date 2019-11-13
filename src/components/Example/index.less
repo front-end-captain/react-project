@@ -1,0 +1,13 @@
+@nice-blue: #5b83ad;
+@light-blue: @nice-blue + #111;
+
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+
+.wrapper {
+  display: grid;
+  color: @light-blue;
+  .bordered;
+}
