@@ -1,0 +1,11 @@
+/build/**
+/dist/**
+/coverage/**
+/docs/**
+/jsdoc/**
+/templates/**
+test.js
+!.eslintrc
+!.babelrc
+**/*.snap
+node_modules
