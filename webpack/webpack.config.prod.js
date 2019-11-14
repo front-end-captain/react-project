@@ -2,7 +2,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const { getAlias } = require("./paths");
 
 const BUILD_PATH = path.resolve(__dirname, "./../build");
 const ASSETS_PATH = "/";
@@ -37,6 +39,45 @@ module.exports = {
           },
           {
             loader: require.resolve("css-loader"),
+            options: {
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: require.resolve("postcss-loader"),
+            options: {
+              ident: "postcss",
+            },
+          },
+        ],
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 2,
+              modules: {
+                mode: "local",
+                localIdentName: "[local]-[hash:base64:5]",
+              },
+            },
+          },
+          {
+            loader: require.resolve("postcss-loader"),
+            options: {
+              ident: "postcss",
+            },
+          },
+          {
+            loader: "less-loader",
+            options: {
+              noIeCompat: true,
+            },
           },
         ],
       },
@@ -90,6 +131,6 @@ module.exports = {
       title: "react-demo",
       template: path.resolve(__dirname, "./../template/index.html"),
     }),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
 };

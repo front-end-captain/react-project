@@ -43,6 +43,7 @@ module.exports = {
             loader: require.resolve("css-loader"),
             options: {
               sourceMap: true,
+              importLoaders: 1,
             },
           },
           {
@@ -64,6 +65,10 @@ module.exports = {
             loader: "css-loader",
             options: {
               sourceMap: true,
+              importLoaders: 2,
+              modules: {
+                localIdentName: "[local]-[hash:base64:5]",
+              },
             },
           },
           {
@@ -76,14 +81,12 @@ module.exports = {
           {
             loader: "less-loader",
             options: {
-              strictMath: true,
               noIeCompat: true,
               sourceMap: true,
             },
           },
         ],
       },
-
     ],
   },
 

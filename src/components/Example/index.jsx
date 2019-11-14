@@ -1,12 +1,13 @@
 import React from "react";
 
-import "./index.less";
+import styles from "./index.less";
 
 const Example = () => {
   return (
-    <div className="wrapper">wrapper</div>
+    <div className={styles.wrapper}>
+      <div className={styles.content}>content</div>
+    </div>
   );
 };
-
 
 export default Example;

@@ -6,8 +6,12 @@
   border-bottom: solid 2px black;
 }
 
-.wrapper {
+:local(.wrapper) {
   display: grid;
   color: @light-blue;
   .bordered;
+
+  .content {
+    color: red;
+  }
 }
