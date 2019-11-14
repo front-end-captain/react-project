@@ -34,6 +34,11 @@ module.exports = {
         },
       },
       {
+        test: /\.jsx?$/,
+        loader: "stylelint-custom-processor-loader",
+        exclude: /node_modules/,
+      },
+      {
         test: /\.css$/,
         use: [
           {

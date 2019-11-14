@@ -6,6 +6,7 @@ const HeaderWrapper = styled.nav`
   min-width: 1140px;
   height: 66px;
   background: rgba(66, 66, 66, 1);
+
   .header-container {
     display: flex;
     align-items: center;
@@ -13,6 +14,7 @@ const HeaderWrapper = styled.nav`
     height: inherit;
     min-width: 1200px;
     margin: 0 auto;
+
     h1 {
       color: #fff;
       font-family: serif;
