@@ -2,11 +2,13 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 const { getAlias } = require("./paths");
 
 const BUILD_PATH = path.resolve(__dirname, "./../build");
 const ASSETS_PATH = "/assets/";
+const SRC_PATH = path.resolve(__dirname, "./../src");
 
 module.exports = {
   devtool: "cheap-module-source-map",
@@ -130,6 +132,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "react-app",
       template: path.resolve(__dirname, "./../template/index.html"),
+    }),
+    new StylelintPlugin({
+      files: ["**/*.less", "**/*.css"],
+      emitError: true,
+      context: SRC_PATH
     }),
   ],
 };
