@@ -7,6 +7,7 @@ const { getAlias } = require("./paths");
 
 const BUILD_PATH = path.resolve(__dirname, "./../build");
 const ASSETS_PATH = "/assets/";
+const SRC_PATH = path.resolve(__dirname, "./../src");
 
 module.exports = {
   devtool: "cheap-module-source-map",
@@ -24,8 +25,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js?x$/,
+        test: /\.jsx?$/,
         loader: require.resolve("babel-loader"),
+        include: SRC_PATH,
+        exclude: /node_modules/,
         options: {
           cacheDirectory: true,
         },
@@ -42,6 +45,14 @@ module.exports = {
           {
             loader: require.resolve("css-loader"),
             options: {
+              sourceMap: true,
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: require.resolve("postcss-loader"),
+            options: {
+              ident: "postcss",
               sourceMap: true,
             },
           },

@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+const { getAlias } = require("./paths");
+
 const BUILD_PATH = path.resolve(__dirname, "./../build");
 const ASSETS_PATH = "/";
 
