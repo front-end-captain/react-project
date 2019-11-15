@@ -7,7 +7,14 @@
       "jsx": true
     }
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "standard",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/standard",
+    "prettier/react"
+  ],
   "plugins": ["react-hooks"],
   "env": {
     "browser": true,
@@ -20,13 +27,10 @@
       "version": "detect",
       "flowVersion": "0.53"
     },
-    "propWrapperFunctions": [
-      "forbidExtraProps",
-      { "property": "freeze", "object": "Object" }
-    ],
-    "linkComponents": [
-      "Hyperlink",
-      { "name": "Link", "linkAttribute": "to" }
-    ]
+    "propWrapperFunctions": ["forbidExtraProps", { "property": "freeze", "object": "Object" }],
+    "linkComponents": ["Hyperlink", { "name": "Link", "linkAttribute": "to" }]
+  },
+  "rules": {
+    "camelcase": "warn"
   }
 }
