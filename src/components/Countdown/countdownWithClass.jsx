@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import { parseRemainingMillisecond, STEP, INTERVAL } from "./utils.js";
 
@@ -12,12 +13,12 @@ class Countdown extends Component {
 
   componentDidMount() {
     const { remainingTime } = this.props;
-    if (remainingTime.toString.length > 0) {
+    if (remainingTime.toString().length > 0) {
       this.setState({ countdown: remainingTime });
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { remainingTime } = this.props;
     if (nextProps.remainingTime !== remainingTime) {
       this.setState({ countdown: nextProps.remainingTime });
@@ -61,5 +62,10 @@ class Countdown extends Component {
     return <strong>{parseRemainingMillisecond(countdown)}</strong>;
   }
 }
+
+Countdown.propTypes = {
+  onLessThenZero: PropTypes.func,
+  remainingTime: PropTypes.number.isRequired,
+};
 
 export { Countdown };

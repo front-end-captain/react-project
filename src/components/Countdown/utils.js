@@ -1,10 +1,10 @@
 /**
- * 讲一个毫秒时间戳转化为 hh:mm:ss 的形式
+ * @description 将一个毫秒时间戳转化为 hh:mm:ss 的形式
  *
- * @param millisecond
- * @returns {string}
+ * @param {number} millisecond input millisecond
+ * @returns {string} string
  */
-const parseRemainingMillisecond = (millisecond) => {
+function parseRemainingMillisecond(millisecond) {
   const millisecondABS = Math.abs(millisecond);
   const millisecondOfHour = 60 * 60 * 1000;
   const millisecondOfMinute = 60 * 1000;
@@ -20,7 +20,7 @@ const parseRemainingMillisecond = (millisecond) => {
   seconds = seconds.toString().padStart(2, "0");
 
   return `${hours}:${minutes}:${seconds}`;
-};
+}
 
 const STEP = 1000;
 const INTERVAL = 1000;
