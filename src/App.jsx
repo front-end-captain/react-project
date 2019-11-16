@@ -1,7 +1,7 @@
-import { hot } from "react-hot-loader/root";
+import { hot } from "react-hot-loader/root.js";
 import React from "react";
 
-import Countdown from "@/components/Countdown";
+import Countdown from "@/components/Countdown/index.js";
 
 import "./App.css";
 

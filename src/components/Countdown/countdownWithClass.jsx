@@ -7,9 +7,13 @@ import { parseRemainingMillisecond, STEP, INTERVAL } from "./utils.js";
 // onLessThenZero: () => void;
 
 class CountDown extends Component {
-  state = {
-    countdown: 0,
-  };
+  constructor() {
+    super();
+
+    this.state = {
+      countdown: 0,
+    };
+  }
 
   componentDidMount() {
     const { remainingTime } = this.props;
@@ -18,6 +22,7 @@ class CountDown extends Component {
     }
   }
 
+  // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps(nextProps) {
     const { remainingTime } = this.props;
     if (nextProps.remainingTime !== remainingTime) {
@@ -63,9 +68,13 @@ class CountDown extends Component {
   }
 }
 
+CountDown.defaultProps = {
+  onLessThenZero: () => {},
+};
+
 CountDown.propTypes = {
   onLessThenZero: PropTypes.func,
   remainingTime: PropTypes.number.isRequired,
 };
 
-export { CountDown };
+export { CountDown as default };

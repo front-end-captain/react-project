@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { parseRemainingMillisecond, STEP, INTERVAL } from "./utils.js";
 import PropTypes from "prop-types";
+
+import { parseRemainingMillisecond, STEP, INTERVAL } from "./utils.js";
 
 // const useInterval = (callback, delay) => {
 //   const saveCallback = useRef();
@@ -66,7 +67,7 @@ const CountDown = ({ remainingTime, onLessThenZero }) => {
 };
 
 CountDown.defaultProps = {
-  remainingTime: 0,
+  onLessThenZero: () => {},
 };
 
 CountDown.propTypes = {
@@ -74,4 +75,4 @@ CountDown.propTypes = {
   remainingTime: PropTypes.number.isRequired,
 };
 
-export { CountDown };
+export { CountDown as default };

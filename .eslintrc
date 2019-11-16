@@ -7,26 +7,16 @@
       "jsx": true
     }
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier", "prettier/react"],
-  "plugins": ["react-hooks"],
+  "extends": ["airbnb", "prettier", "prettier/react"],
   "env": {
     "browser": true,
     "es2020": true
   },
+  "rules": {
+    "import/no-unresolved": [0],
+    "import/extensions": ["error", "always", { "ignorePackages": true }]
+  },
   "settings": {
-    "react": {
-      "createClass": "createReactClass",
-      "pragma": "React",
-      "version": "detect",
-      "flowVersion": "0.53"
-    },
-    "propWrapperFunctions": [
-      "forbidExtraProps",
-      { "property": "freeze", "object": "Object" }
-    ],
-    "linkComponents": [
-      "Hyperlink",
-      { "name": "Link", "linkAttribute": "to" }
-    ]
+    "import/extensions": [".js", ".jsx"]
   }
 }
