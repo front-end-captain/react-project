@@ -1,3 +1,4 @@
-import { Countdown } from "./countdownWithClass.jsx";
+// import { CountDown } from "./countdownWithClass.jsx";
+import { CountDown } from "./countdownWithHooks.jsx";
 
-export default Countdown;
+export default CountDown;

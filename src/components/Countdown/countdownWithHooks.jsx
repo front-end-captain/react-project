@@ -55,12 +55,12 @@ const useCountDown = (remainingTime, callback) => {
   return { countdown };
 };
 
-const CountDown = ({ remainingTime, onEqualZero }) => {
+const CountDown = ({ remainingTime, onLessThenZero }) => {
   if (remainingTime === 0) {
     return <strong>{parseRemainingMillisecond(0)}</strong>;
   }
 
-  const { countdown } = useCountDown(remainingTime, onEqualZero);
+  const { countdown } = useCountDown(remainingTime, onLessThenZero);
 
   return <strong>{parseRemainingMillisecond(countdown)}</strong>;
 };
@@ -70,8 +70,8 @@ CountDown.defaultProps = {
 };
 
 CountDown.propTypes = {
-  onEqualZero: PropTypes.func,
+  onLessThenZero: PropTypes.func,
   remainingTime: PropTypes.number.isRequired,
 };
 
-export default CountDown;
+export { CountDown };

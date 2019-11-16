@@ -6,7 +6,7 @@ import { parseRemainingMillisecond, STEP, INTERVAL } from "./utils.js";
 // props: remainingTime: number 毫秒
 // onLessThenZero: () => void;
 
-class Countdown extends Component {
+class CountDown extends Component {
   state = {
     countdown: 0,
   };
@@ -63,9 +63,9 @@ class Countdown extends Component {
   }
 }
 
-Countdown.propTypes = {
+CountDown.propTypes = {
   onLessThenZero: PropTypes.func,
   remainingTime: PropTypes.number.isRequired,
 };
 
-export { Countdown };
+export { CountDown };

@@ -3,9 +3,10 @@
 /coverage/**
 /docs/**
 /jsdoc/**
-/templates/**
+/template/**
 test.js
 !.eslintrc
 !.babelrc
 **/*.snap
 node_modules
+/webpack/**

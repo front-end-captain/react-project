@@ -12,7 +12,7 @@ module.exports = {
   devtool: "cheap-module-source-map",
   mode: "development",
   entry: {
-    app: path.resolve(__dirname, "./../src/index.jsx"),
+    app: ["react-hot-loader/patch", path.resolve(__dirname, "./../src/index.jsx")],
   },
 
   output: {
@@ -23,6 +23,15 @@ module.exports = {
 
   module: {
     rules: [
+      {
+        enforce: "pre",
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: require.resolve("eslint-loader"),
+        options: {
+          emitError: true,
+        },
+      },
       {
         test: /\.js?x$/,
         loader: require.resolve("babel-loader"),
