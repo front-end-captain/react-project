@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const { getAlias } = require("./path");
+
 const BUILD_PATH = path.resolve(__dirname, "./../build");
 const ASSETS_PATH = "/";
 
@@ -21,6 +23,7 @@ module.exports = {
 
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
+    alias: getAlias(),
   },
 
   module: {
@@ -53,6 +56,7 @@ module.exports = {
       },
     ],
   },
+
 
   optimization: {
     splitChunks: {

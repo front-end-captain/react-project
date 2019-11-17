@@ -1,9 +1,16 @@
+import { hot } from "react-hot-loader/root";
 import React, { FunctionComponent } from "react";
+
+import { Countdown } from "@/components/Countdown";
 
 import "./App.css";
 
-const App: FunctionComponent = () => {
-  return <div className="App">React App</div>;
+interface AppProps {
+  name?: string;
+}
+
+const App: FunctionComponent<AppProps> = () => {
+  return <div className="App">React App <Countdown remainingTime={5000} /></div>;
 };
 
-export { App };
+export default hot(App);

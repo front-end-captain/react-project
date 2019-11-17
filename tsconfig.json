@@ -34,7 +34,8 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-      "*": ["./node_modules/*/index"]
+      "*": ["./node_modules/*/index"],
+      "@/components/*": ["src/components/*"]
     },
     "typeRoots": ["./typings", "./node_modules/@types"],
     "allowSyntheticDefaultImports": true,

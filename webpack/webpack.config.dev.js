@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
+const { getAlias } = require("./path");
+
 const BUILD_PATH = path.resolve(__dirname, "./../build");
 const ASSETS_PATH = "/assets/";
 
@@ -11,7 +13,7 @@ module.exports = {
   devtool: "cheap-module-source-map",
   mode: "development",
   entry: {
-    app: [path.resolve(__dirname, "./../src/index.tsx")],
+    app: ["react-hot-loader/patch", path.resolve(__dirname, "./../src/index.tsx")],
   },
 
   output: {
@@ -22,6 +24,7 @@ module.exports = {
 
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
+    alias: getAlias(),
   },
 
   module: {
