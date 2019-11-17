@@ -16,6 +16,6 @@ export function parseRemainingMillisecond(millisecond: number): string {
   return `${adaptHours}:${adaptMinutes}:${adaptSeconds}`;
 }
 
-export const STEP: number = 1000;
+export const STEP = 1000;
 
-export const INTERVAL: number = 1000;
+export const INTERVAL = 1000;
