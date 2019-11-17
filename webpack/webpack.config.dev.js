@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const BUILD_PATH = path.resolve(__dirname, "./../build");
 const ASSETS_PATH = "/assets/";
@@ -10,7 +11,7 @@ module.exports = {
   devtool: "cheap-module-source-map",
   mode: "development",
   entry: {
-    app: path.resolve(__dirname, "./../src/index.js"),
+    app: [path.resolve(__dirname, "./../src/index.tsx")],
   },
 
   output: {
@@ -19,8 +20,20 @@ module.exports = {
     publicPath: ASSETS_PATH,
   },
 
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"],
+  },
+
   module: {
     rules: [
+      {
+        test: /\.ts[x]?$/,
+        loader: "ts-loader",
+        options: {
+          transpileOnly: true,
+        },
+        exclude: /node_modules/,
+      },
       {
         test: /\.css$/,
         use: [
@@ -36,8 +49,14 @@ module.exports = {
               sourceMap: true,
             },
           },
+          {
+            loader: require.resolve("postcss-loader"),
+            options: {
+              ident: "postcss",
+              sourceMap: true,
+            },
+          },
         ],
-      
       },
     ],
   },
@@ -55,6 +74,13 @@ module.exports = {
     historyApiFallback: {
       index: ASSETS_PATH + "index.html",
     },
+    stats: {
+      version: true,
+      timings: true,
+      colors: true,
+      modules: false,
+      children: false,
+    },
   },
 
   plugins: [
@@ -70,5 +96,6 @@ module.exports = {
       title: "react-app",
       template: path.resolve(__dirname, "./../template/index.html"),
     }),
+    new ForkTsCheckerWebpackPlugin(),
   ],
 };

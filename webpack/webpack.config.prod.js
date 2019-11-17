@@ -4,12 +4,12 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const BUILD_PATH = path.resolve(__dirname, "./../build");
-const ASSETS_PATH = "/assets/";
+const ASSETS_PATH = "/";
 
 module.exports = {
   mode: "production",
   entry: {
-    app: path.resolve(__dirname, "./../src/index.js"),
+    app: path.resolve(__dirname, "./../src/index.tsx"),
   },
 
   output: {
@@ -19,8 +19,20 @@ module.exports = {
     chunkFilename: "[name]-[chunkhash:8].js",
   },
 
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"],
+  },
+
   module: {
     rules: [
+      {
+        test: /\.ts[x]?$/,
+        loader: "ts-loader",
+        options: {
+          transpileOnly: true,
+        },
+        exclude: /node_modules/,
+      },
       {
         test: /\.css$/,
         use: [
@@ -30,8 +42,14 @@ module.exports = {
           {
             loader: require.resolve("css-loader"),
           },
+          {
+            loader: require.resolve("postcss-loader"),
+            options: {
+              ident: "postcss",
+              sourceMap: true,
+            },
+          },
         ],
-      
       },
     ],
   },
