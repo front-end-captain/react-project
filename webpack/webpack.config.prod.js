@@ -37,9 +37,9 @@ module.exports = {
       },
       {
         test: /\.ts[x]?$/,
-        loader: "ts-loader",
+        loader: "babel-loader",
         options: {
-          transpileOnly: true,
+          cacheDirectory: true,
         },
         exclude: /node_modules/,
       },
