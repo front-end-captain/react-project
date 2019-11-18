@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const { getAlias } = require("./path");
 
@@ -106,5 +107,6 @@ module.exports = {
       title: "react-demo",
       template: path.resolve(__dirname, "./../template/index.html"),
     }),
+    // new BundleAnalyzerPlugin()
   ],
 };

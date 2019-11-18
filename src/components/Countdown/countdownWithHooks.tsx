@@ -27,4 +27,6 @@ const Countdown = memo<CountDownProps>((props) => {
   return <strong>{parseRemainingMillisecond(countdown)}</strong>;
 });
 
+Countdown.displayName = "Countdown";
+
 export { Countdown };

@@ -10,7 +10,11 @@ interface AppProps {
 }
 
 const App: FunctionComponent<AppProps> = () => {
-  return <div className="App">React App <Countdown remainingTime={5000} /></div>;
+  return (
+    <div className="App">
+      React App <Countdown remainingTime={5000} />
+    </div>
+  );
 };
 
 export default hot(App);
