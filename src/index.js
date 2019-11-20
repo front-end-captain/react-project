@@ -1,6 +1,6 @@
-import "./index.css"
+import "./index.css";
 
-class Demo {
+class App {
   constructor(name) {
     this.name = name;
   }
@@ -10,6 +10,6 @@ class Demo {
   }
 }
 
-const demo = new Demo("hello viking");
+const app = new App("hello app");
 
-console.log(demo.getName())
+console.log(app.getName());
