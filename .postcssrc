@@ -6,7 +6,6 @@
       "grid": "autoplace"
     },
     "postcss-preset-env": {},
-    "cssnano": {},
-    "stylelint": {}
+    "cssnano": {}
   }
 }
