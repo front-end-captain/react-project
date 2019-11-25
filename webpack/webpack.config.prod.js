@@ -25,7 +25,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js?x$/,
+        test:  /\.jsx?$/,
         loader: require.resolve("babel-loader"),
         options: {
           cacheDirectory: true,
