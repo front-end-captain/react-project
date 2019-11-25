@@ -12,7 +12,7 @@ module.exports = {
   devtool: "cheap-module-source-map",
   mode: "development",
   entry: {
-    app: path.resolve(__dirname, "./../src/index.jsx"),
+    app: ["react-hot-loader/patch", path.resolve(__dirname, "./../src/index.jsx")]
   },
 
   output: {
@@ -59,7 +59,10 @@ module.exports = {
         test: /\.less$/,
         use: [
           {
-            loader: "style-loader",
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: true,
+            },
           },
           {
             loader: "css-loader",
