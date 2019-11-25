@@ -3,13 +3,13 @@ import React from "react";
 
 import { Header } from "@/components/Example";
 
-import "./App.css";
+import { AppWrapper } from  "./App.css.js";
 
 const App = () => (
-  <div className="app">
+  <AppWrapper>
     Hello World!
     <Header />
-  </div>
+  </AppWrapper>
 );
 
 export default hot(App);

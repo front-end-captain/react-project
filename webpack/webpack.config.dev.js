@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const StylelintPlugin = require("stylelint-webpack-plugin");
 
 const { getAlias } = require("./paths");
 
@@ -106,6 +107,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "react-app",
       template: path.resolve(__dirname, "./../template/index.html"),
+    }),
+    new StylelintPlugin({
+      files: ["**/*.css", "**/*.css.js"],
+      emitError: true,
+      context: SRC_PATH,
     }),
   ],
 };

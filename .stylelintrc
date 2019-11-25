@@ -1,10 +1,17 @@
 {
   "processors": [
-    "stylelint-processor-styled-components"
+    [
+      "stylelint-processor-styled-components",
+      {
+        "moduleName": "styled-components",
+        "strict": false,
+        "ignoreFiles": ["**/*.css"]
+      }
+    ]
   ],
-  "syntax": "css",
   "extends": [
     "stylelint-config-standard",
+    "stylelint-config-prettier",
     "stylelint-config-styled-components"
   ]
 }
