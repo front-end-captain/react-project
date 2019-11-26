@@ -30,12 +30,6 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: "pre",
-        test: /\.ts[x]?$/,
-        exclude: /node_modules/,
-        loader: require.resolve("eslint-loader"),
-      },
-      {
         test: /\.ts[x]?$/,
         loader: "babel-loader",
         options: {
@@ -63,7 +57,6 @@ module.exports = {
       },
     ],
   },
-
 
   optimization: {
     splitChunks: {

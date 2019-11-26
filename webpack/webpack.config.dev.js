@@ -30,12 +30,6 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: "pre",
-        test: /\.ts[x]?$/,
-        exclude: /node_modules/,
-        loader: require.resolve("eslint-loader"),
-      },
-      {
         test: /\.ts[x]?$/,
         loader: "ts-loader",
         options: {
@@ -66,6 +60,16 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|webp|svg)(\?.*)?$/,
+        loader: require.resolve("url-loader"),
+        options: {
+          limit: 4096,
+          fallback: {
+            loader: "file-loader",
+          },
+        },
       },
     ],
   },

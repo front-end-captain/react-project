@@ -3,16 +3,30 @@ import React, { FunctionComponent } from "react";
 
 import { Countdown } from "@/components/Countdown";
 
+import logo from "./assets/logo.svg";
+
 import "./App.css";
 
-interface AppProps {
-  name?: string;
-}
-
-const App: FunctionComponent<AppProps> = () => {
+const App: FunctionComponent = () => {
   return (
     <div className="App">
-      React App <Countdown remainingTime={5000} />
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+          Learn React
+        </a>
+        <a className="App-link" href="http://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">
+          Learn TypeScript
+        </a>
+        <p>
+          Any questions contract author&apos;s dingtalk: <strong>Brendan.ye</strong>
+        </p>
+
+        <Countdown remainingTime={1 * 24 * 60 * 60 * 1000} />
+      </header>
     </div>
   );
 };

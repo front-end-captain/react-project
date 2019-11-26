@@ -37,7 +37,7 @@
       "*": ["./node_modules/*/index"],
       "@/components/*": ["src/components/*"]
     },
-    "typeRoots": ["./typings", "./node_modules/@types"],
+    "typeRoots": ["src/typings", "./node_modules/@types"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
 
