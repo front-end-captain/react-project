@@ -35,7 +35,7 @@
     "baseUrl": "./",
     "paths": {
       "*": ["./node_modules/*/index"],
-      "@/components/*": ["src/components/*"]
+      "@/*": ["src/*"]
     },
     "typeRoots": ["src/typings", "./node_modules/@types"],
     "allowSyntheticDefaultImports": true,
