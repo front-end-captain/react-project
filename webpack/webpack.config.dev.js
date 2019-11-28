@@ -34,11 +34,11 @@ module.exports = {
           cacheDirectory: true,
         },
       },
-      {
-        test: /\.css.js$/,
-        loader: "stylelint-custom-processor-loader",
-        exclude: /node_modules/,
-      },
+      // {
+      //   test: /\.css.js$/,
+      //   loader: "stylelint-custom-processor-loader",
+      //   exclude: /node_modules/,
+      // },
       {
         test: /\.css$/,
         use: [
@@ -109,9 +109,11 @@ module.exports = {
       template: path.resolve(__dirname, "./../template/index.html"),
     }),
     new StylelintPlugin({
-      files: ["**/*.css", "**/*.css.js"],
+      files: ["**/*.css", "**/*.css.js", "**/*.less", "**/*.scss", "**/*.css.ts"],
       emitError: true,
       context: SRC_PATH,
+      configBasedir: __dirname,
+      configFile: path.resolve(__dirname, "./../.stylelintrc"),
     }),
   ],
 };
