@@ -7,7 +7,7 @@
     "serve": "webpack-dev-server --config webpack/webpack.config.dev.js",
     "build": "webpack --config webpack/webpack.config.prod.js",
     "eslint": "eslint --ext .js src/",
-    "format": "prettier --write src/*.js src/**/*.js"
+    "format": "prettier --write src/*.js src/**/*.js src/*.css src/**/*.css"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "lint-staged"
     }
   },
   "lint-staged": {
