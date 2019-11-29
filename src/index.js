@@ -1,8 +1,10 @@
 import "./index.css";
 
 class App {
-  constructor(name) {
-    this.name = name;
+  constructor(rootNode) {
+    this.node = rootNode;
+
+    rootNode.innerHTML = "<div class='content'>This project has not any features</div>";
   }
 
   getName() {
@@ -10,6 +12,5 @@ class App {
   }
 }
 
-const app = new App("hello app");
-
-console.log(app.getName());
+const root = document.getElementById("root");
+new App(root);

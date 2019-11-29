@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended", "prettier"],
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "rules": {
+    "semi": ["error", "always"]
+  }
+}

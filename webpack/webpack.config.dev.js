@@ -22,6 +22,12 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: "pre",
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: require.resolve("eslint-loader"),
+      },
+      {
         test: /\.css$/,
         use: [
           {
@@ -54,6 +60,13 @@ module.exports = {
     publicPath: ASSETS_PATH,
     historyApiFallback: {
       index: ASSETS_PATH + "index.html",
+    },
+    stats: {
+      version: true,
+      timings: true,
+      colors: true,
+      modules: false,
+      children: false,
     },
   },
 
