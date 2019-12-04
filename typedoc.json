@@ -1,0 +1,8 @@
+{
+  "mode": "modules",
+  "out": "docs",
+  "name": "react-project",
+  "includes": ["src/"],
+  "exclude": ["node_modules", "webpack"],
+  "theme": "minimal"
+}

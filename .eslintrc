@@ -27,7 +27,6 @@
     "import/no-unresolved": ["off"],
     "react/jsx-filename-extension": ["error", { "extensions": [".ts", ".tsx"] }],
     "import/prefer-default-export": ["off"],
-    "react/state-in-constructor": ["warn"],
     "no-unused-vars": ["error"]
   },
   "settings": {

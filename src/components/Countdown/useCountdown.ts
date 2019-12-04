@@ -4,7 +4,7 @@ const INTERVAL = 1000;
 const STEP = 1000;
 
 /**
- * @description 传入一个时间戳，返回一个每隔 INTERVAL 时间，递减 STEP 的时间戳，并在时间戳小于等于 0 时，调用回调函数
+ * 传入一个时间戳，返回一个每隔 INTERVAL 时间，递减 STEP 的时间戳，并在时间戳小于等于 0 时，调用回调函数
  * 返回的 countDown 预期不会小于零的
  *
  * @param {number} remainingTime 毫秒数

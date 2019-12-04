@@ -12,8 +12,6 @@ interface CountdownState {
 }
 
 class Countdown extends Component<CountDownProps, CountdownState> {
-  state: CountdownState;
-
   countdownTimer: number;
 
   constructor(props: CountDownProps) {

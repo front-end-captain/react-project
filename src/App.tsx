@@ -9,6 +9,9 @@ interface AppProps {
   name?: string;
 }
 
+/**
+ * Root Component
+ */
 const App: FunctionComponent<AppProps> = () => {
   return (
     <div className="App">
