@@ -3,10 +3,13 @@ import React from "react";
 
 import Example from "@/components/Example";
 
-import "./App.css";
+import styles from "./App.less";
+
+import "./global.less";
 
 const App = () => (
-  <div className="app">
+  <div className={styles.app}>
+    <div className={styles.content}>AppContent</div>
     Hello World!
     <Example />
   </div>

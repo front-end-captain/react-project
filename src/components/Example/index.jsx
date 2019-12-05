@@ -6,6 +6,7 @@ const Example = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>content</div>
+      <div className="global-name">global</div>
     </div>
   );
 };

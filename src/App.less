@@ -1,0 +1,16 @@
+@selector: content;
+
+:local(.app) {
+  width: 100%;
+  height: 100%;
+  background-color: aliceblue;
+  color: #ded;
+
+  .@{selector} {
+    color: burlywood;
+
+    &-ok {
+      color: blue;
+    }
+  }
+}

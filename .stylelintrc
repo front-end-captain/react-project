@@ -14,6 +14,18 @@
     "declaration-block-trailing-semicolon": null,
     "declaration-colon-space-after": null,
     "declaration-block-single-line-max-declarations": null,
-    "selector-list-comma-newline-after": null
-  },
+    "selector-list-comma-newline-after": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": [
+          "export",
+          "import",
+          "global",
+          "local",
+          "external"
+        ]
+      }
+    ]
+  }
 }
