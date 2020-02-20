@@ -14,6 +14,10 @@ const HoverButtonWrapper = styled.div`
   font-size: 14px;
   overflow: hidden;
 
+  span {
+    display: block;
+  }
+
   &:hover {
     color: #ccc;
     background-color: green;
@@ -21,10 +25,6 @@ const HoverButtonWrapper = styled.div`
     span {
       transform: translateY(-40px);
     }
-  }
-
-  span {
-    display: block;
   }
 `;
 

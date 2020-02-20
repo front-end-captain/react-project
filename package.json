@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "webpack-dev-server --config webpack/webpack.config.dev.js",
     "build": "webpack --config webpack/webpack.config.prod.js",
-    "stylelint": "stylelint src/*.css src/*.css.js src/**/*.css src/**/*.css.js"
+    "stylelint": "stylelint src/**/*.{css,css.js}"
   },
   "repository": {
     "type": "git",
@@ -40,13 +40,13 @@
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^1.19.1",
-    "stylelint": "^12.0.0",
-    "stylelint-config-prettier": "^6.0.0",
-    "stylelint-config-standard": "^19.0.0",
+    "stylelint": "^13.0.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-standard": "^20.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-custom-processor-loader": "^0.6.0",
-    "stylelint-processor-styled-components": "^1.9.0",
-    "stylelint-webpack-plugin": "^1.1.0",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "stylelint-webpack-plugin": "^1.2.3",
     "webpack": "^4.41.2",
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",
