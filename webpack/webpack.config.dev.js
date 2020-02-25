@@ -34,18 +34,29 @@ module.exports = {
           cacheDirectory: true,
         },
       },
-      // {
-      //   test: /\.css.js$/,
-      //   loader: "stylelint-custom-processor-loader",
-      //   exclude: /node_modules/,
-      // },
+      {
+        test: /\.css.js$/,
+        loader: "stylelint-custom-processor-loader",
+        exclude: /node_modules/,
+      },
       {
         test: /\.css$/,
         use: [
+          // 生产环境使用 MiniCssExtractPlugin.loader 将样式抽取到一个单独的样式文件
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: {
+          //     hmr: true,
+          //   },
+          // },
+
+          // NOTE 两者不可以同时使用(二选一)
+
+          // 开发环境使用 MiniCssExtractPlugin.loader 将样式通过 <style> 标签内联到文档头中
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: require.resolve("style-loader"),
             options: {
-              hmr: true,
+              esModule: true,
             },
           },
           {

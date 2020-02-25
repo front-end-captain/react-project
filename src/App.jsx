@@ -6,11 +6,15 @@ import { HoverButton } from "@/components/HoverButton";
 
 import { AppWrapper } from  "./App.css.js";
 
+import { Button } from "./button";
+
 const App = () => (
   <AppWrapper>
     Hello World!
     <Header />
     <HoverButton />
+
+    <Button />
   </AppWrapper>
 );
 
