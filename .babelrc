@@ -16,6 +16,22 @@
         "minify": true,
         "pure": true
       }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": "css"
+      },
+      "antd"
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd-mobile",
+        "style": "css"
+      },
+      "antd-mobile"
     ]
   ]
 }
