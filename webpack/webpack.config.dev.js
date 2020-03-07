@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const tsImportPluginFactory = require("ts-import-plugin");
 
 const { getAlias } = require("./path");
 
@@ -34,6 +35,22 @@ module.exports = {
         loader: "ts-loader",
         options: {
           transpileOnly: true,
+          getCustomTransformers: () => ({
+            before: [
+              tsImportPluginFactory([
+                {
+                  libraryName: "antd",
+                  libraryDirectory: "lib",
+                  style: "css",
+                },
+                {
+                  libraryName: "antd-mobile",
+                  libraryDirectory: "lib",
+                  style: "css",
+                },
+              ]),
+            ],
+          }),
         },
         exclude: /node_modules/,
       },

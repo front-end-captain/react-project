@@ -35,7 +35,8 @@
     "baseUrl": "./",
     "paths": {
       "*": ["./node_modules/*/index"],
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@/pages": ["src/pages/*"]
     },
     "typeRoots": ["src/typings", "./node_modules/@types"],
     "allowSyntheticDefaultImports": true,

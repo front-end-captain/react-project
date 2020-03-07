@@ -8,6 +8,8 @@ const getAlias = () => {
   const appSrc = resolveApp("src");
   return {
     "@/components": path.join(appSrc, "/components"),
+    "@/pages": path.join(appSrc, "/pages"),
+    "@/*": path.join(appSrc),
   };
 };
 

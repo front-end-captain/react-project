@@ -2,6 +2,8 @@ import { hot } from "react-hot-loader/root";
 import React, { FunctionComponent } from "react";
 
 import { Countdown } from "@/components/Countdown";
+import { Home } from "@/pages/Home";
+import { Users } from "@/pages/Users";
 
 import logo from "./assets/logo.svg";
 
@@ -26,6 +28,10 @@ const App: FunctionComponent = () => {
         </p>
 
         <Countdown remainingTime={1 * 24 * 60 * 60 * 1000} />
+
+        <Home />
+
+        <Users />
       </header>
     </div>
   );
