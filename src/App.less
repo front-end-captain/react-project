@@ -1,16 +1,22 @@
-@selector: content;
-
 :local(.app) {
   width: 100%;
   height: 100%;
   background-color: aliceblue;
   color: #ded;
 
-  .@{selector} {
+  &.name {
+    background-color: red;
+  }
+
+  .content {
     color: burlywood;
 
     &-ok {
       color: blue;
     }
+  }
+
+  .title {
+    color: red;
   }
 }

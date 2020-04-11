@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const StylelintPlugin = require('stylelint-webpack-plugin');
+const StylelintPlugin = require("stylelint-webpack-plugin");
 
 const { getAlias } = require("./paths");
 
@@ -69,7 +69,10 @@ module.exports = {
               sourceMap: true,
               importLoaders: 2,
               modules: {
-                localIdentName: "[local]-[hash:base64:5]",
+                mode: "global",
+                exportGlobals: true,
+                localIdentName: "[name]__[local]__[hash:base64:5]",
+                context: path.resolve(__dirname, "src"),
               },
             },
           },
@@ -83,7 +86,6 @@ module.exports = {
           {
             loader: "less-loader",
             options: {
-              noIeCompat: true,
               sourceMap: true,
             },
           },
@@ -136,7 +138,7 @@ module.exports = {
     new StylelintPlugin({
       files: ["**/*.less", "**/*.css"],
       emitError: true,
-      context: SRC_PATH
+      context: SRC_PATH,
     }),
   ],
 };
