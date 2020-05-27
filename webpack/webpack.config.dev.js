@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const WebpackBar = require("webpackbar");
 
 const { getAlias } = require("./path");
 
@@ -83,13 +84,7 @@ module.exports = {
     historyApiFallback: {
       index: ASSETS_PATH + "index.html",
     },
-    stats: {
-      version: true,
-      timings: true,
-      colors: true,
-      modules: false,
-      children: false,
-    },
+    stats: "none",
   },
 
   plugins: [
@@ -106,5 +101,6 @@ module.exports = {
       template: path.resolve(__dirname, "./../template/index.html"),
     }),
     new ForkTsCheckerWebpackPlugin(),
+    new WebpackBar({ name: "WebpackBar", color: "blue" }),
   ],
 };
