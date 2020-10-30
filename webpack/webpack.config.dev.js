@@ -12,12 +12,13 @@ module.exports = {
   devtool: "cheap-module-source-map",
   mode: "development",
   entry: {
-    app: ["react-hot-loader/patch", path.resolve(__dirname, "./../src/index.jsx")]
+    index: ["react-hot-loader/patch", path.resolve(__dirname, "./../src/index.jsx")],
+    main: ["react-hot-loader/patch", path.resolve(__dirname, "./../src/main.jsx")],
   },
 
   output: {
     path: BUILD_PATH,
-    filename: "[name]-[hash:8].js",
+    filename: "[name]-[fullhash:8].js",
     publicPath: ASSETS_PATH,
   },
 
@@ -43,16 +44,15 @@ module.exports = {
             loader: require.resolve("css-loader"),
             options: {
               sourceMap: true,
-              importLoaders: 1,
+              // importLoaders: 1,
             },
           },
-          {
-            loader: require.resolve("postcss-loader"),
-            options: {
-              ident: "postcss",
-              sourceMap: true,
-            },
-          },
+          // {
+          //   loader: require.resolve("postcss-loader"),
+          //   options: {
+          //     sourceMap: true,
+          //   },
+          // },
         ],
       },
       {
@@ -67,24 +67,23 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              sourceMap: true,
-              importLoaders: 2,
+              importLoaders: 1,
               modules: {
-                localIdentName: "[local]-[hash:base64:5]",
+                mode: "global",
+                exportGlobals: true,
+                localIdentName: "[name]__[local]__[fullhash:base64:5]",
               },
             },
           },
-          {
-            loader: require.resolve("postcss-loader"),
-            options: {
-              ident: "postcss",
-              sourceMap: true,
-            },
-          },
+          // {
+          //   loader: require.resolve("postcss-loader"),
+          //   options: {
+          //     sourceMap: true,
+          //   },
+          // },
           {
             loader: "less-loader",
             options: {
-              noIeCompat: true,
               sourceMap: true,
             },
           },
@@ -99,7 +98,7 @@ module.exports = {
   },
 
   devServer: {
-    open: false,
+    open: true,
     host: "0.0.0.0",
     port: "8000",
     contentBase: BUILD_PATH,
@@ -131,8 +130,16 @@ module.exports = {
       chunkFilename: "[id].css",
     }),
     new HtmlWebpackPlugin({
-      title: "react-app",
+      title: "react-index",
+      filename: "a.html",
       template: path.resolve(__dirname, "./../template/index.html"),
+      chunks: ["index"],
+    }),
+    new HtmlWebpackPlugin({
+      title: "react-main",
+      filename: "b.html",
+      template: path.resolve(__dirname, "./../template/main.html"),
+      chunks: ["main"],
     }),
   ],
 };

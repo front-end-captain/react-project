@@ -12,12 +12,13 @@ const ASSETS_PATH = "/";
 module.exports = {
   mode: "production",
   entry: {
-    app: path.resolve(__dirname, "./../src/index.jsx"),
+    index: path.resolve(__dirname, "./../src/index.jsx"),
+    main: path.resolve(__dirname, "./../src/main.jsx"),
   },
 
   output: {
     path: BUILD_PATH,
-    filename: "[name]-[hash:8].js",
+    filename: "[name]-[fullhash:8].js",
     publicPath: ASSETS_PATH,
     chunkFilename: "[name]-[chunkhash:8].js",
   },
@@ -39,16 +40,16 @@ module.exports = {
           },
           {
             loader: require.resolve("css-loader"),
-            options: {
-              importLoaders: 1,
-            },
+            // options: {
+            //   importLoaders: 1,
+            // },
           },
-          {
-            loader: require.resolve("postcss-loader"),
-            options: {
-              ident: "postcss",
-            },
-          },
+          // {
+          //   loader: require.resolve("postcss-loader"),
+          //   options: {
+          //     ident: "postcss",
+          //   },
+          // },
         ],
       },
       {
@@ -60,24 +61,22 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              importLoaders: 2,
+              importLoaders: 1,
               modules: {
-                mode: "local",
-                localIdentName: "[local]-[hash:base64:5]",
+                mode: "global",
+                exportGlobals: true,
+                localIdentName: "[name]__[local]__[fullhash:base64:5]",
               },
             },
           },
-          {
-            loader: require.resolve("postcss-loader"),
-            options: {
-              ident: "postcss",
-            },
-          },
+          // {
+          //   loader: require.resolve("postcss-loader"),
+          //   options: {
+          //     ident: "postcss",
+          //   },
+          // },
           {
             loader: "less-loader",
-            options: {
-              noIeCompat: true,
-            },
           },
         ],
       },
@@ -124,12 +123,20 @@ module.exports = {
       dry: false,
     }),
     new MiniCssExtractPlugin({
-      filename: "[name]-[hash:8].css",
-      chunkFilename: "[id]-[hash:8].css",
+      filename: "[name]-[fullhash:8].css",
+      chunkFilename: "[id]-[fullhash:8].css",
     }),
     new HtmlWebpackPlugin({
-      title: "react-demo",
+      title: "react-entry",
+      filename: "a.html",
+      chunks: ["index"],
       template: path.resolve(__dirname, "./../template/index.html"),
+    }),
+    new HtmlWebpackPlugin({
+      title: "react-main",
+      filename: "b.html",
+      chunks: ["main"],
+      template: path.resolve(__dirname, "./../template/main.html"),
     }),
     // new BundleAnalyzerPlugin(),
   ],
